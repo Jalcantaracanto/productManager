@@ -1,0 +1,39 @@
+.main {
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+form h1 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.box {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(243, 243, 243);
+    color: grey;
+    padding: 3px 0 3px 0;
+    margin: 2px;
+    border: 1px solid rgb(202, 202, 202);
+    border-radius: 5px;
+}
+
+form label {
+    margin: 4px;
+}
+
+form input {
+    margin: 4px;
+}
+
+.btn {
+    width: 150px;
+    margin: auto;
+}
