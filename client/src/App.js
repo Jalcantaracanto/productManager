@@ -1,10 +1,15 @@
 import "./App.css"
-import { MainRoutes } from "./routes/MainRoutes"
+import { Routes, Route } from "react-router-dom";
+import { Home } from "./views/Home";
 
 function App() {
     return (
         <div className="App">
-            <MainRoutes />
+            <Routes>
+                <Route path="/home" element={<Home />} />
+                {/* <Route path="/editar-tarea/:id" element={<EditionView />} />
+                <Route path="/crear-tarea" element={<CreationView />} /> */}
+            </Routes>
         </div>
     )
 }
