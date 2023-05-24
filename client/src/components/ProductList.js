@@ -1,14 +1,16 @@
 import React from "react"
+import { Link } from "react-router-dom"
 
-export const ProductList = (props) => {
-    // console.log(props)
+export const ProductList = ({ products }) => {
     return (
         <div>
-            {props.products.map((product, index) => {
+            {products.map((product, index) => {
                 return (
-                    <p key={index}>
-                        {product.title}
-                    </p>
+                    <ol key={index}>
+                        <Link to={`/${product._id}`} key={product._id}>
+                            {product.title}
+                        </Link>
+                    </ol>
                 )
             })}
         </div>

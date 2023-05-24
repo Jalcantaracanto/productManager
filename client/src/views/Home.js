@@ -15,7 +15,7 @@ export const Home = () => {
             console.log(error)
         }
     }
-    
+
     useEffect(() => {
         getProductsFromService();
         
