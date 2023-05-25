@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react"
 import { getProducts } from "../services/product-service"
 import { ProductForm } from "../components/ProductForm"
 import { ProductList } from "../components/ProductList"
+import Container from "react-bootstrap/Container"
+import Row from "react-bootstrap/Row"
+import Col from "react-bootstrap/Col"
 
 export const Home = () => {
     const [products, setProducts] = useState([])
@@ -11,20 +14,33 @@ export const Home = () => {
             const list = await getProducts()
             console.log(list.data)
             setProducts(list.data.product)
-        } catch (error){
+        } catch (error) {
             console.log(error)
         }
     }
 
     useEffect(() => {
-        getProductsFromService();
-        
-    },[])
+        getProductsFromService()
+    }, [])
 
     return (
         <>
-            <ProductForm/>
-            <ProductList products={products}/>
+            <Container>
+                <Row>
+                    <Col></Col>
+                    <Col xs={6}>
+                        <ProductForm products={products} setProducts={setProducts} />
+                    </Col>
+                    <Col></Col>
+                </Row>
+                <Row>
+                    <Col></Col>
+                    <Col xs={5}>
+                        <ProductList products={products} setProducts={setProducts} />
+                    </Col>
+                    <Col></Col>
+                </Row>
+            </Container>
         </>
     )
 }

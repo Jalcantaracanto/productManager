@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { getProduct } from "../services/product-service"
+import { Link } from "react-router-dom"
+import { ProductDelete } from "./ProductDelete"
 
 export const ProductDetail = () => {
     const { id } = useParams()
@@ -19,11 +21,7 @@ export const ProductDetail = () => {
 
     useEffect(() => {
         getOneProductFromService()
-    }, [id])
-
-    const goBack = () => {
-        navigate(-1)
-    }
+    }, [])
 
     return (
         <div>
@@ -31,7 +29,12 @@ export const ProductDetail = () => {
             <p>Title: {product.title}</p>
             <p>Price: {product.price}</p>
             <p>Description: {product.description}</p>
-            <button onClick={goBack}>Go Back</button>
+            <Link to={`/${product._id}/edit`}>
+                <input type="button" value="Edit" />
+            </Link>
+
+            <input type="button" value="Back" onClick={() => navigate(-1)} />
+            <ProductDelete productId={product._id}/>
         </div>
     )
 }
